@@ -28,14 +28,17 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-
+  let profilePicture = `${variables.avatarURL}`;
+  if (variables.includePicture == false)
+    profilePicture =
+      "https://www.gravatar.com/avatar/d7465b8fce04fd17a376618ba1eb8ddc.jpg?d=https%3A//d2mcnjhkvrfuy2.cloudfront.net/static/images/avatar_default.png&s=128";
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
-          <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <img src="${profilePicture}" class="photo" />
+          <h1>${variables.name} ${variables.lastname}</h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city}, ${variables.country}</h3>
           <ul class="position-right">
             <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
@@ -53,22 +56,23 @@ window.onload = function() {
   window.variables = {
     // if includeCover is true the algorithm should
     includeCover: true,
+    includePicture: true,
     // this is the url of the image that will used as background for the profile cover
     background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL: "https://avatars.githubusercontent.com/u/82070148?v=4",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: "gabo180",
     linkedin: null,
     instagram: null,
-    name: null,
-    lastname: null,
-    role: null,
-    country: null,
-    city: null
+    name: "",
+    lastname: "",
+    role: "",
+    country: "USA",
+    city: "Houston"
   };
   render(window.variables); //render the card for the first time
 
