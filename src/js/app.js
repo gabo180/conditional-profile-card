@@ -39,8 +39,8 @@ function render(variables = {}) {
           <h1>${variables.name} ${variables.lastname}</h1>
           <h2>${variables.role}</h2>
           <h3>${variables.city}, ${variables.country}</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
+          <ul class="${variables.socialMediaPosition} ${variables.socialMediaColor}">
+            <li><a href="https://twitter.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
             <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
             <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
@@ -58,11 +58,13 @@ window.onload = function() {
     includeCover: true,
     includePicture: true,
     // this is the url of the image that will used as background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://greenandblackmusic.com/wp-content/uploads/2017/11/Iron-Maiden-The-Trooper.jpg",
     // this is the url for the profile avatar
     avatarURL: "https://avatars.githubusercontent.com/u/82070148?v=4",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
+    socialMediaColor: "Cyan",
     // social media usernames
     twitter: null,
     github: "gabo180",
